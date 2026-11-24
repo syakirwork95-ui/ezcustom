@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EzCustom — Tempah Baju &amp; Jersi Custom</title>
+  <meta name="description" content="EzCustom: Tempah Baju Cotton DTF (1 helai pun boleh) & Jersi Sublimation Team (min 10 helai). Upload design sendiri, nampak terus atas baju, auto kira harga & terus WhatsApp." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Apple-style Translucent Top Navigation -->
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true">Ez</span>
+        <div>
+          <h1 class="brand-title">EzCustom</h1>
+          <p class="brand-sub" data-i18n="brandSub">Studio Baju &amp; Jersi Custom</p>
+        </div>
+      </div>
+      <div class="topbar-actions">
+        <button type="button" class="btn-nav-pill" id="openCatalogBtn" data-i18n="catalogBtn">
+          Katalog Kain &amp; Kolar
+        </button>
+        <div class="lang-toggle" role="group" aria-label="Tukar Bahasa / Switch Language">
+          <button type="button" class="lang-btn active" data-lang="ms" aria-pressed="true">BM</button>
+          <span class="lang-sep" aria-hidden="true">|</span>
+          <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container main-content">
+    <!-- Minimalist Hero -->
+    <section class="hero">
+      <p class="hero-eyebrow" data-i18n="heroEyebrow">EzCustom Studio</p>
+      <h2 class="hero-title" data-i18n-html="heroTitle">Tempah baju custom.<br /><span>Ringkas. Pantas. Kemas.</span></h2>
+      <p class="hero-subtitle" data-i18n="heroSubtitle">Pilih jenis baju, letak design sendiri atau minta kami buatkan, pilih saiz, dan terus lock order di WhatsApp.</p>
+    </section>
+
+    <!-- LANGKAH 1: Apple-Style Product Showcase Bento -->
+    <section class="bento-card" id="step-1">
+      <div class="section-head">
+        <span class="step-pill" data-i18n="step1Pill">Langkah 1</span>
+        <h2 class="section-title" data-i18n="step1Title">Pilih jenis baju anda.</h2>
+        <p class="section-sub" data-i18n="step1Sub">Tekan salah satu kad untuk mula kira harga &amp; tarikh siap automatik.</p>
+      </div>
+
+      <div class="product-grid" role="radiogroup" aria-label="Pilih Jenis Baju">
+        <!-- Kad 1: Baju Cotton DTF -->
+        <button type="button" class="product-tile active" data-product="dtf" aria-pressed="true">
+          <div class="tile-top">
+            <div class="pill-group">
+              <span class="apple-pill pill-blue" data-i18n="dtfBadge1">1 Helai Pun Boleh</span>
+              <span class="apple-pill" data-i18n="dtfBadge2">Siap 2–4 Hari</span>
+            </div>
+            <span class="selected-dot" aria-label="Dipilih">✓</span>
+          </div>
+
+          <div class="tile-stage">
+            <img src="images/baju-dtf.png" alt="Baju Cotton DTF" class="tile-mockup" loading="eager" width="540" height="641" />
+          </div>
+
+          <div class="tile-info">
+            <h3 class="tile-name" data-i18n="dtfName">Baju Cotton DTF</h3>
+            <p class="tile-desc" data-i18n="dtfDesc">Selesa dipakai harian • Siap 2–4 hari bekerja</p>
+            <div class="tile-price">
+              <span class="tile-price-val">RM30 – RM33</span>
+              <span class="tile-price-unit" data-i18n="perPiece">/ helai</span>
+            </div>
+            <p class="tile-footnote" data-i18n="dtfFootnote">Free Postage bila ambil 3 helai ke atas</p>
+          </div>
+        </button>
+
+        <!-- Kad 2: Jersi Sublimation Team -->
+        <button type="button" class="product-tile" data-product="jersi" aria-pressed="false">
+          <div class="tile-top">
+            <div class="pill-group">
+              <span class="apple-pill pill-dark" data-i18n="jersiBadge1">Min 10 Helai</span>
+              <span class="apple-pill" data-i18n="jersiBadge2">Siap 10–14 Hari</span>
+            </div>
+            <span class="selected-dot" aria-label="Dipilih">✓</span>
+          </div>
+
+          <div class="tile-stage">
+            <img src="images/jersi-sublimation.png" alt="Jersi Sublimation Team" class="tile-mockup" loading="eager" width="540" height="655" />
+          </div>
+
+          <div class="tile-info">
+            <h3 class="tile-name" data-i18n="jersiName">Jersi Sublimation Team</h3>
+            <p class="tile-desc" data-i18n="jersiDesc">Penuh warna • Siap 10–14 hari bekerja</p>
+            <div class="tile-price">
+              <span class="tile-price-val">RM25 – RM28</span>
+              <span class="tile-price-unit" data-i18n="perPiece">/ helai</span>
+            </div>
+            <p class="tile-footnote" data-i18n="jersiFootnote">Sesuai bola, futsal, batch, larian &amp; family day</p>
+          </div>
+        </button>
+      </div>
+
+      <!-- Anggaran Tarikh Siap Automatik -->
+      <div class="eta-strip" id="etaBox" aria-live="polite">
+        <div class="eta-badge-icon" aria-hidden="true">📅</div>
+        <div class="eta-content">
+          <p class="eta-label" data-i18n="etaLabel">Dijangka siap pos (dikira dari hari ini)</p>
+          <p class="eta-date" id="etaDateText">Mengira tarikh...</p>
+          <p class="eta-note" data-i18n="etaNote">Tidak termasuk Sabtu &amp; Ahad. Tarikh rasmi dikira selepas deposit &amp; confirm design.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- LANGKAH 2: Studio Configurator (Design Sendiri / Minta Kami Buatkan) -->
+    <section class="bento-card" id="step-2">
+      <div class="section-head">
+        <span class="step-pill" data-i18n="step2Pill">Langkah 2</span>
+        <h2 class="section-title" data-i18n="step2Title">Design ikut gaya anda.</h2>
+        <p class="section-sub" data-i18n="step2Sub">Upload gambar terus atas baju, atau biar kami buatkan basic design percuma.</p>
+      </div>
+
+      <!-- Apple Segmented Control -->
+      <div class="segmented-control" role="tablist">
+        <button type="button" class="seg-btn active" data-mode="own" role="tab" aria-selected="true" data-i18n="tabOwn">
+          Ada Design Sendiri
+        </button>
+        <button type="button" class="seg-btn" data-mode="custom" role="tab" aria-selected="false" data-i18n="tabCustom">
+          Minta Kami Buatkan (FREE)
+        </button>
+      </div>
+
+      <!-- Panel A: Studio Upload & Live Preview -->
+      <div class="config-panel" id="panelOwn">
+        <div class="studio-grid">
+          <div class="studio-canvas-wrap">
+            <div class="shirt-stage" id="shirtStage">
+              <img src="images/baju-dtf.png" alt="Pratonton Baju" class="shirt-base" id="previewShirtImg" />
+              <div class="print-area" id="printArea">
+                <div class="design-placeholder" id="designPlaceholder">
+                  <span class="placeholder-icon" aria-hidden="true">＋</span>
+                  <span data-i18n="placeholderText">Pratonton design anda di sini</span>
+                </div>
+                <img src="" alt="Design Anda" class="design-overlay hidden" id="designOverlay" draggable="false" />
+              </div>
+            </div>
+            <p class="stage-caption" data-i18n="stageCaption">Seret gambar dengan jari atau laras guna slider di sebelah.</p>
+          </div>
+
+          <div class="studio-controls">
+            <label for="designFileInput" class="btn-apple-primary" id="uploadLabel" data-i18n="uploadBtn">
+              Muat Naik Gambar Design
+            </label>
+            <input type="file" id="designFileInput" accept="image/*" class="sr-only" />
+            <p class="file-status" id="fileStatus">Belum pilih gambar (PNG atau JPG)</p>
+
+            <div class="adjust-card hidden" id="adjustBox">
+              <p class="adjust-title" data-i18n="adjustTitle">Laras Kedudukan &amp; Saiz</p>
+              <label class="slider-row">
+                <span data-i18n="sliderSize">Saiz</span>
+                <input type="range" id="sizeSlider" min="25" max="100" value="68" />
+              </label>
+              <label class="slider-row">
+                <span data-i18n="sliderY">Atas / Bawah</span>
+                <input type="range" id="posYSlider" min="15" max="75" value="38" />
+              </label>
+              <label class="slider-row">
+                <span data-i18n="sliderX">Kiri / Kanan</span>
+                <input type="range" id="posXSlider" min="25" max="75" value="50" />
+              </label>
+              <div class="adjust-actions">
+                <button type="button" class="btn-chip" id="resetPosBtn" data-i18n="resetPosBtn">Tengah Semula</button>
+                <button type="button" class="btn-chip btn-chip-danger" id="removeDesignBtn" data-i18n="removeDesignBtn">Buang Gambar</button>
+              </div>
+            </div>
+
+            <div class="studio-tip" data-i18n-html="studioTip">
+              <strong>Tip ringkas:</strong> Pratonton ini untuk lihat anggaran posisi atas baju. Lepas tekan WhatsApp nanti, hantar sekali gambar asal supaya cetakan paling tajam.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Panel B: Minta Kami Buatkan -->
+      <div class="config-panel hidden" id="panelCustom">
+        <div class="custom-design-card">
+          <div class="pill-group custom-pills">
+            <span class="apple-pill pill-blue" data-i18n="customPill1">FREE Basic Design</span>
+            <span class="apple-pill" data-i18n="customPill2">Max 3x Edit Kecil</span>
+            <span class="apple-pill pill-warn" data-i18n="customPill3">Tiada Logo Hak Cipta / Trademark</span>
+          </div>
+          <p class="custom-lead" data-i18n-html="customLead">
+            Tak pandai edit gambar? Tiada masalah. Cerita sahaja idea anda di bawah — kami buatkan basic design secara <strong>percuma</strong> selepas bayar deposit design RM50.
+          </p>
+          <p class="custom-policy" data-i18n="customPolicy">
+            Kami tidak mencetak logo hak cipta atau trademark berjenama (contoh: Nike, Adidas, Puma, Marvel, kartun berlesen, dan sebagainya).
+          </p>
+          <label for="designNoteInput" class="field-label" data-i18n="designNoteLabel">Tulis idea ringkas anda (pilihan)</label>
+          <textarea
+            id="designNoteInput"
+            rows="3"
+            class="apple-textarea"
+            data-i18n-placeholder="designNotePlaceholder"
+            placeholder="Contoh: Nak tulis 'FAMILY DAY 2026' warna putih depan dada, tema biru & oren..."
+          ></textarea>
+        </div>
+      </div>
+    </section>
+
+    <!-- LANGKAH 3: Apple-Style Size Pills & Auto Price -->
+    <section class="bento-card" id="step-3">
+      <div class="section-head section-head-row">
+        <div>
+          <span class="step-pill" data-i18n="step3Pill">Langkah 3</span>
+          <h2 class="section-title" data-i18n="step3Title">Pilih saiz &amp; bilangan.</h2>
+          <p class="section-sub" data-i18n="step3Sub">Tekan + atau − pada saiz yang diperlukan. Harga dikira automatik.</p>
+        </div>
+        <button type="button" class="btn-text-blue" id="openSizeChartBtn" data-i18n="sizeChartBtn">
+          Lihat Carta Saiz ›
+        </button>
+      </div>
+
+      <!-- Jadual Harga Tier -->
+      <div class="tier-strip" id="tierStrip"></div>
+
+      <!-- Grid Pil Saiz XS–5XL -->
+      <div class="size-grid" id="sizeGrid"></div>
+
+      <div class="size-toolbar">
+        <button type="button" class="btn-link-subtle" id="clearSizesBtn" data-i18n="clearSizesBtn">Kosongkan semua saiz</button>
+        <span class="qty-badge" id="totalQtyPill">0 helai dipilih</span>
+      </div>
+
+      <!-- Galakan Jimat / Amaran Minimum -->
+      <div class="nudge-banner hidden" id="nudgeBox" aria-live="polite"></div>
+
+      <!-- Ringkasan Harga -->
+      <div class="receipt-card" id="summaryBox">
+        <div class="receipt-row">
+          <span data-i18n="sumProductLabel">Jenis Baju</span>
+          <strong id="sumProduct">Baju Cotton DTF</strong>
+        </div>
+        <div class="receipt-row">
+          <span data-i18n="sumQtyLabel">Jumlah Helai</span>
+          <strong id="sumQty">0 helai</strong>
+        </div>
+        <div class="receipt-row">
+          <span data-i18n="sumUnitLabel">Harga Sehelai</span>
+          <strong id="sumUnitPrice">RM33</strong>
+        </div>
+        <div class="receipt-row">
+          <span data-i18n="sumPostageLabel">Postage</span>
+          <strong id="sumPostage">Ikut lokasi</strong>
+        </div>
+        <div class="receipt-divider"></div>
+        <div class="receipt-row receipt-total">
+          <span data-i18n="sumTotalLabel">Jumlah Harga</span>
+          <strong id="sumTotal">RM0</strong>
+        </div>
+        <div class="receipt-deposit">
+          <span id="sumDepositLabel">Anggaran Deposit Cetak (60%–70%)</span>
+          <strong id="sumDeposit">RM0</strong>
+        </div>
+      </div>
+    </section>
+
+    <!-- LANGKAH 4: 4 Kotak Wajib Tick + WhatsApp Checkout -->
+    <section class="bento-card" id="step-4">
+      <div class="section-head">
+        <span class="step-pill" data-i18n="step4Pill">Langkah 4</span>
+        <h2 class="section-title" data-i18n="step4Title">Pengesahan ringkas.</h2>
+        <p class="section-sub" data-i18n="step4Sub">Tick semua 4 kotak di bawah untuk aktifkan butang WhatsApp.</p>
+      </div>
+
+      <div class="policy-list" id="agreementList">
+        <label class="policy-item">
+          <input type="checkbox" class="agree-checkbox" id="chkDeposit" />
+          <span class="policy-text" data-i18n-html="policy1">
+            <strong>Setuju Deposit</strong> — Saya setuju bayar deposit dulu (RM50 untuk mula design / 60%–70% untuk mula cetak).
+          </span>
+        </label>
+
+        <label class="policy-item">
+          <input type="checkbox" class="agree-checkbox" id="chkDesign" />
+          <span class="policy-text" data-i18n-html="policy2">
+            <strong>Had Edit &amp; Hak Cipta</strong> — Saya faham free basic design termasuk max 3 kali edit kecil sahaja &amp; tiada logo hak cipta/trademark.
+          </span>
+        </label>
+
+        <label class="policy-item">
+          <input type="checkbox" class="agree-checkbox" id="chkSize" />
+          <span class="policy-text" data-i18n-html="policy3">
+            <strong>Saiz Muktamad</strong> — Saya sudah semak carta saiz &amp; faham saiz adalah muktamad lepas confirm.
+          </span>
+        </label>
+
+        <label class="policy-item">
+          <input type="checkbox" class="agree-checkbox" id="chkReply" />
+          <span class="policy-text" data-i18n-html="policy4">
+            <strong>Masa Balas &amp; Mockup</strong> — Saya faham admin akan balas mesej &amp; hantar mockup selepas jam 6 petang.
+          </span>
+        </label>
+      </div>
+
+      <p class="lock-hint" id="lockHint">Pilih sekurang-kurangnya 1 helai &amp; tick semua 4 kotak di atas dulu ya.</p>
+
+      <button type="button" class="btn-whatsapp-lg" id="whatsappBtn" disabled>
+        <span class="wa-dot" aria-hidden="true"></span>
+        <span data-i18n="whatsappBtn">Lock Order &amp; Hantar ke WhatsApp</span>
+      </button>
+    </section>
+
+    <footer class="site-footer">
+      <p data-i18n="footerText">EzCustom • Tempahan rasmi melalui WhatsApp (017-833 0166)</p>
+    </footer>
+  </main>
+
+  <!-- Glassmorphism Sticky Floating Summary Dock -->
+  <aside class="floating-dock" aria-label="Ringkasan Harga Pantas">
+    <div class="dock-inner">
+      <div class="dock-meta">
+        <div class="dock-price-row">
+          <span class="dock-price" id="dockTotal">RM0</span>
+          <span class="dock-qty" id="dockQty">0 helai</span>
+        </div>
+        <p class="dock-eta" id="dockEta">Dijangka siap pos: —</p>
+      </div>
+      <button type="button" class="dock-wa-btn" id="dockWhatsappBtn" disabled data-i18n="dockBtn">
+        Lock Order
+      </button>
+    </div>
+  </aside>
+
+  <!-- Floating FAQ Bubble (di atas floating dock) -->
+  <button type="button" class="help-fab" id="helpFab" aria-expanded="false" aria-controls="helpPopover" data-i18n="helpFab">
+    Bantuan?
+  </button>
+
+  <!-- Popover 4 Jawapan Pantas -->
+  <div class="help-popover hidden" id="helpPopover" role="dialog" aria-label="Bantuan Pantas">
+    <div class="help-head">
+      <strong data-i18n="helpHead">Jawapan Pantas</strong>
+      <button type="button" class="icon-close" id="closeHelpBtn" aria-label="Tutup bantuan">✕</button>
+    </div>
+    <div class="help-pills">
+      <button type="button" class="help-pill active" data-faq="harga" data-i18n="faqTabHarga">Harga</button>
+      <button type="button" class="help-pill" data-faq="siap" data-i18n="faqTabSiap">Bila Siap</button>
+      <button type="button" class="help-pill" data-faq="deposit" data-i18n="faqTabDeposit">Deposit</button>
+      <button type="button" class="help-pill" data-faq="design" data-i18n="faqTabDesign">Tak Pandai Design</button>
+    </div>
+    <div class="help-answer" id="helpAnswer"></div>
+  </div>
+
+  <!-- Modal Carta Saiz XS–5XL -->
+  <div class="modal-backdrop hidden" id="sizeChartModal" role="dialog" aria-modal="true" aria-labelledby="sizeChartTitle">
+    <div class="modal-card">
+      <div class="modal-head">
+        <h3 id="sizeChartTitle" data-i18n="sizeChartTitle">Carta Saiz (XS – 5XL)</h3>
+        <button type="button" class="icon-close" data-close-modal="sizeChartModal" aria-label="Tutup">✕</button>
+      </div>
+      <div class="modal-body">
+        <p class="modal-note" data-i18n-html="sizeChartNote">Ukuran standard Unisex dalam <strong>inci</strong> (±0.5 inci). Kalau suka longgar, ambil 1 saiz lebih besar.</p>
+        <div class="table-wrap">
+          <table class="size-table">
+            <thead>
+              <tr>
+                <th data-i18n="colSize">Saiz</th>
+                <th data-i18n="colChest">Lebar Dada</th>
+                <th data-i18n="colLength">Labuh Baju</th>
+                <th data-i18n="colWeight">Anggaran Berat</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>XS</strong></td><td>18"</td><td>25"</td><td>&lt; 45 kg</td></tr>
+              <tr><td><strong>S</strong></td><td>19"</td><td>26"</td><td>45 – 55 kg</td></tr>
+              <tr><td><strong>M</strong></td><td>20"</td><td>27"</td><td>55 – 65 kg</td></tr>
+              <tr><td><strong>L</strong></td><td>21"</td><td>28"</td><td>65 – 75 kg</td></tr>
+              <tr><td><strong>XL</strong></td><td>22"</td><td>29"</td><td>75 – 85 kg</td></tr>
+              <tr><td><strong>2XL</strong></td><td>23"</td><td>30"</td><td>85 – 95 kg</td></tr>
+              <tr><td><strong>3XL</strong></td><td>24"</td><td>31"</td><td>95 – 105 kg</td></tr>
+              <tr><td><strong>4XL</strong></td><td>25.5"</td><td>32"</td><td>105 – 115 kg</td></tr>
+              <tr><td><strong>5XL</strong></td><td>27"</td><td>33"</td><td>115+ kg</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Katalog Kain, Kolar & Add-on -->
+  <div class="modal-backdrop hidden" id="catalogModal" role="dialog" aria-modal="true" aria-labelledby="catalogTitle">
+    <div class="modal-card modal-card-lg">
+      <div class="modal-head">
+        <h3 id="catalogTitle" data-i18n="catalogTitle">Katalog Jenis Kolar, Kain &amp; Add-on</h3>
+        <button type="button" class="icon-close" data-close-modal="catalogModal" aria-label="Tutup">✕</button>
+      </div>
+      <div class="modal-body catalog-gallery">
+        <p class="modal-note" data-i18n="catalogNote">Pilihan tambahan untuk kolar, jenis kain jersi, atau nama &amp; nombor (boleh bincang di WhatsApp):</p>
+        <figure class="catalog-item">
+          <figcaption data-i18n="catCap1">Jenis Kolar</figcaption>
+          <img src="images/3.png" alt="Katalog Jenis Kolar" loading="lazy" />
+        </figure>
+        <figure class="catalog-item">
+          <figcaption data-i18n="catCap2">Jenis Kain — Eyelet, Mini Eyelet, Interlock</figcaption>
+          <img src="images/4.png" alt="Katalog Jenis Kain 1" loading="lazy" />
+        </figure>
+        <figure class="catalog-item">
+          <figcaption data-i18n="catCap3">Jenis Kain — RJPK, Diamond, Lycra</figcaption>
+          <img src="images/5.png" alt="Katalog Jenis Kain 2" loading="lazy" />
+        </figure>
+        <figure class="catalog-item">
+          <figcaption data-i18n="catCap4">Add-on — Lengan Panjang, Muslimah, Poket &amp; Cuff</figcaption>
+          <img src="images/6.png" alt="Katalog Add-on 1" loading="lazy" />
+        </figure>
+        <figure class="catalog-item">
+          <figcaption data-i18n="catCap5">Add-on — Nama &amp; Nombor</figcaption>
+          <img src="images/7.png" alt="Katalog Add-on 2" loading="lazy" />
+        </figure>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
