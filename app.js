@@ -71,9 +71,31 @@
       perPieceCompact: '/helai',
       sumProductLabel: 'Jenis Baju',
       sumQtyLabel: 'Jumlah Helai',
-      sumUnitLabel: 'Harga Sehelai',
+      sumBaseUnitLabel: 'Harga Asas Sehelai',
+      sumAddonsLabel: 'Kolar & Add-On',
+      sumUnitLabel: 'Jumlah Sehelai',
       sumPostageLabel: 'Postage',
       sumTotalLabel: 'Jumlah Harga',
+      collarGroupTitle: 'Jenis Kolar',
+      collarGroupSub: 'Pilih 1 jenis kolar (harga sehelai)',
+      addonGroupTitle: 'Add-On Tambahan (Pilihan)',
+      addonGroupSub: 'Tekan untuk tambah atau buang (harga sehelai)',
+      freeLabel: 'FREE',
+      collars: {
+        round: 'Round Neck',
+        vneck_cross: 'V-Neck Cross',
+        vneck_collar: 'V-Neck Collar',
+        retro: 'Retro Collar',
+        polo: 'Polo Collar',
+        nfl: 'NFL Collar',
+      },
+      addons: {
+        long_sleeve: 'Lengan Panjang',
+        muslimah: 'Muslimah',
+        pocket: 'Poket',
+        cuff: 'Cuff',
+        name_num: 'Nama + Nombor',
+      },
       postageFree: 'Free Postage',
       postageByLocation: 'Ikut lokasi (bincang di WhatsApp)',
       postageByLocationShort: 'Ikut lokasi',
@@ -182,14 +204,27 @@
       catCap4: 'Add-on — Lengan Panjang, Muslimah, Poket & Cuff',
       catCap5: 'Add-on — Nama & Nombor',
 
-      waMessage: ({ prodName, designLine, sizeSummary, qty, unitPrice, postageText, total, depositLine, eta }) =>
+      waMessage: ({
+        prodName,
+        designLine,
+        sizeSummary,
+        qty,
+        baseUnitPrice,
+        addonText,
+        effectiveUnitPrice,
+        postageText,
+        total,
+        depositLine,
+        eta,
+      }) =>
         [
           'Hai admin EzCustom! Saya nak LOCK ORDER baju:',
           '',
           `👕 Jenis: ${prodName}`,
           `🎨 Design: ${designLine}`,
           `📏 Saiz: ${sizeSummary}`,
-          `🔢 Jumlah: ${qty} helai (RM${unitPrice}/helai)`,
+          `✨ Kolar & Add-On: ${addonText}`,
+          `🔢 Jumlah: ${qty} helai (Asas RM${baseUnitPrice} → RM${effectiveUnitPrice}/helai)`,
           `🚚 Postage: ${postageText}`,
           `💰 Jumlah Harga: RM${total}`,
           `💳 Anggaran Deposit: ${depositLine}`,
@@ -271,9 +306,31 @@
       perPieceCompact: '/pc',
       sumProductLabel: 'Apparel Type',
       sumQtyLabel: 'Total Quantity',
-      sumUnitLabel: 'Price per Piece',
+      sumBaseUnitLabel: 'Base Price / Piece',
+      sumAddonsLabel: 'Collar & Add-Ons',
+      sumUnitLabel: 'Total / Piece',
       sumPostageLabel: 'Postage',
       sumTotalLabel: 'Total Price',
+      collarGroupTitle: 'Collar Style',
+      collarGroupSub: 'Pick 1 collar style (price per piece)',
+      addonGroupTitle: 'Optional Add-Ons',
+      addonGroupSub: 'Tap to add or remove (price per piece)',
+      freeLabel: 'FREE',
+      collars: {
+        round: 'Round Neck',
+        vneck_cross: 'V-Neck Cross',
+        vneck_collar: 'V-Neck Collar',
+        retro: 'Retro Collar',
+        polo: 'Polo Collar',
+        nfl: 'NFL Collar',
+      },
+      addons: {
+        long_sleeve: 'Long Sleeve',
+        muslimah: 'Muslimah',
+        pocket: 'Pocket',
+        cuff: 'Cuff',
+        name_num: 'Name + Number',
+      },
       postageFree: 'Free Postage',
       postageByLocation: 'Based on location (confirm on WhatsApp)',
       postageByLocationShort: 'Based on location',
@@ -381,14 +438,27 @@
       catCap4: 'Add-ons — Long Sleeve, Muslimah, Pocket & Cuff',
       catCap5: 'Add-ons — Name & Number',
 
-      waMessage: ({ prodName, designLine, sizeSummary, qty, unitPrice, postageText, total, depositLine, eta }) =>
+      waMessage: ({
+        prodName,
+        designLine,
+        sizeSummary,
+        qty,
+        baseUnitPrice,
+        addonText,
+        effectiveUnitPrice,
+        postageText,
+        total,
+        depositLine,
+        eta,
+      }) =>
         [
           'Hi EzCustom admin! I would like to LOCK MY ORDER:',
           '',
           `👕 Item: ${prodName}`,
           `🎨 Design: ${designLine}`,
           `📏 Sizes: ${sizeSummary}`,
-          `🔢 Quantity: ${qty} pcs (RM${unitPrice}/pc)`,
+          `✨ Collar & Add-Ons: ${addonText}`,
+          `🔢 Quantity: ${qty} pcs (Base RM${baseUnitPrice} → RM${effectiveUnitPrice}/pc)`,
           `🚚 Postage: ${postageText}`,
           `💰 Total Price: RM${total}`,
           `💳 Est. Deposit: ${depositLine}`,
@@ -404,6 +474,23 @@
       waDepositOwn: (d60, d70) => `RM${d60}–RM${d70} (60%–70% print)`,
     },
   };
+
+  const COLLARS = [
+    { id: 'round', price: 0 },
+    { id: 'vneck_cross', price: 2 },
+    { id: 'vneck_collar', price: 2 },
+    { id: 'retro', price: 4 },
+    { id: 'polo', price: 4 },
+    { id: 'nfl', price: 8 },
+  ];
+
+  const ADDONS = [
+    { id: 'long_sleeve', price: 4 },
+    { id: 'muslimah', price: 7 },
+    { id: 'pocket', price: 4 },
+    { id: 'cuff', price: 2 },
+    { id: 'name_num', price: 5 },
+  ];
 
   const PRODUCTS = {
     dtf: {
@@ -444,6 +531,8 @@
     designMode: 'own',
     uploadedFileName: '',
     fileInvalid: false,
+    collar: 'round',
+    addons: new Set(),
     sizes: Object.fromEntries(SIZES.map((s) => [s, 0])),
     designPos: { x: 50, y: 38, scale: 68 },
   };
@@ -471,12 +560,16 @@
 
   const tierStrip = document.getElementById('tierStrip');
   const sizeGrid = document.getElementById('sizeGrid');
+  const collarGrid = document.getElementById('collarGrid');
+  const addonGrid = document.getElementById('addonGrid');
   const clearSizesBtn = document.getElementById('clearSizesBtn');
   const totalQtyPill = document.getElementById('totalQtyPill');
   const nudgeBox = document.getElementById('nudgeBox');
 
   const sumProduct = document.getElementById('sumProduct');
   const sumQty = document.getElementById('sumQty');
+  const sumBaseUnitPrice = document.getElementById('sumBaseUnitPrice');
+  const sumAddons = document.getElementById('sumAddons');
   const sumUnitPrice = document.getElementById('sumUnitPrice');
   const sumPostage = document.getElementById('sumPostage');
   const sumTotal = document.getElementById('sumTotal');
@@ -552,37 +645,99 @@
     return Object.values(state.sizes).reduce((a, b) => a + b, 0);
   }
 
+  function getSelectedCollar() {
+    return COLLARS.find((c) => c.id === state.collar) || COLLARS[0];
+  }
+
+  function getAddonSummaryText() {
+    const dict = t();
+    const collar = getSelectedCollar();
+    const collarLabel =
+      collar.price > 0
+        ? `${dict.collars[collar.id]} (+RM${collar.price})`
+        : `${dict.collars[collar.id]} (${dict.freeLabel})`;
+
+    const selectedAddons = ADDONS.filter((a) => state.addons.has(a.id)).map(
+      (a) => `${dict.addons[a.id]} (+RM${a.price})`
+    );
+
+    return selectedAddons.length > 0 ? `${collarLabel}, ${selectedAddons.join(', ')}` : collarLabel;
+  }
+
   function calculatePricing() {
     const qty = getTotalQty();
     const prod = PRODUCTS[state.product];
-    let unitPrice = 0;
+    let baseUnitPrice = 0;
     let freePostage = false;
 
     if (state.product === 'dtf') {
       if (qty >= 7) {
-        unitPrice = 30;
+        baseUnitPrice = 30;
         freePostage = true;
       } else if (qty >= 5) {
-        unitPrice = 31;
+        baseUnitPrice = 31;
         freePostage = true;
       } else if (qty >= 3) {
-        unitPrice = 32;
+        baseUnitPrice = 32;
         freePostage = true;
       } else {
-        unitPrice = 33;
+        baseUnitPrice = 33;
         freePostage = false;
       }
     } else {
-      unitPrice = qty >= 20 ? 25 : 28;
+      baseUnitPrice = qty >= 20 ? 25 : 28;
       freePostage = false;
     }
 
-    const total = qty * unitPrice;
+    const collarExtra = getSelectedCollar().price;
+    const addonsExtra = ADDONS.reduce(
+      (sum, a) => sum + (state.addons.has(a.id) ? a.price : 0),
+      0
+    );
+    const addonPerPiece = collarExtra + addonsExtra;
+    const effectiveUnitPrice = baseUnitPrice + addonPerPiece;
+
+    const total = qty * effectiveUnitPrice;
     const dep60 = Math.round(total * 0.6);
     const dep70 = Math.round(total * 0.7);
     const meetsMin = qty >= prod.minQty;
 
-    return { qty, unitPrice, total, freePostage, dep60, dep70, meetsMin, prod };
+    return {
+      qty,
+      baseUnitPrice,
+      addonPerPiece,
+      effectiveUnitPrice,
+      total,
+      freePostage,
+      dep60,
+      dep70,
+      meetsMin,
+      prod,
+    };
+  }
+
+  function renderAddons() {
+    const dict = t();
+    collarGrid.innerHTML = COLLARS.map((c) => {
+      const active = state.collar === c.id;
+      const badge = c.price > 0 ? `+RM${c.price}` : dict.freeLabel;
+      return `
+        <button type="button" class="addon-pill ${active ? 'active' : ''}" data-collar="${c.id}" role="radio" aria-checked="${active}">
+          <span>${dict.collars[c.id]}</span>
+          <span class="addon-price">${badge}</span>
+        </button>
+      `;
+    }).join('');
+
+    addonGrid.innerHTML = ADDONS.map((a) => {
+      const active = state.addons.has(a.id);
+      return `
+        <button type="button" class="addon-pill ${active ? 'active' : ''}" data-addon="${a.id}" aria-pressed="${active}">
+          <span>${dict.addons[a.id]}</span>
+          <span class="addon-price">+RM${a.price}</span>
+        </button>
+      `;
+    }).join('');
   }
 
   // --- Build XS–5XL pills ---
@@ -661,7 +816,18 @@
   // --- Update all dynamic UI ---
   function updateAll(animatePrice = false) {
     const dict = t();
-    const { qty, unitPrice, total, freePostage, dep60, dep70, meetsMin, prod } = calculatePricing();
+    const {
+      qty,
+      baseUnitPrice,
+      addonPerPiece,
+      effectiveUnitPrice,
+      total,
+      freePostage,
+      dep60,
+      dep70,
+      meetsMin,
+      prod,
+    } = calculatePricing();
     const eta = getEtaRange(state.product);
     const prodName = state.product === 'dtf' ? dict.dtfName : dict.jersiName;
 
@@ -684,7 +850,7 @@
       })
       .join('');
 
-    // 3) Size pills
+    // 3) Size pills & Add-on pills
     SIZES.forEach((s) => {
       const count = state.sizes[s];
       document.getElementById(`qty-${s}`).textContent = count;
@@ -692,6 +858,7 @@
       if (cell) cell.classList.toggle('has-qty', count > 0);
     });
     totalQtyPill.textContent = dict.qtySelected(qty);
+    renderAddons();
 
     // 4) Nudge banner
     nudgeBox.className = 'nudge-banner hidden';
@@ -721,7 +888,9 @@
     // 5) Receipt summary
     sumProduct.textContent = prodName;
     sumQty.textContent = dict.qtyUnit(qty);
-    sumUnitPrice.textContent = `RM${unitPrice}`;
+    sumBaseUnitPrice.textContent = `RM${baseUnitPrice}`;
+    sumAddons.textContent = `${getAddonSummaryText()}${addonPerPiece > 0 ? ` (+RM${addonPerPiece}${dict.perPieceCompact})` : ''}`;
+    sumUnitPrice.textContent = `RM${effectiveUnitPrice}`;
     sumPostage.textContent = freePostage ? dict.postageFree : dict.postageByLocation;
     sumTotal.textContent = `RM${total}`;
 
@@ -766,12 +935,14 @@
   // --- WhatsApp Checkout (in currently selected language) ---
   function openWhatsAppCheckout() {
     const dict = t();
-    const { qty, unitPrice, total, freePostage, dep60, dep70 } = calculatePricing();
+    const { qty, baseUnitPrice, effectiveUnitPrice, total, freePostage, dep60, dep70 } =
+      calculatePricing();
     const eta = getEtaRange(state.product);
     const prodName = state.product === 'dtf' ? dict.dtfName : dict.jersiName;
     const sizeSummary = SIZES.filter((s) => state.sizes[s] > 0)
       .map((s) => `${s} x${state.sizes[s]}`)
       .join(', ');
+    const addonText = getAddonSummaryText();
 
     let designLine = '';
     if (state.designMode === 'own') {
@@ -795,7 +966,9 @@
       designLine,
       sizeSummary,
       qty,
-      unitPrice,
+      baseUnitPrice,
+      addonText,
+      effectiveUnitPrice,
       postageText,
       total,
       depositLine,
@@ -960,6 +1133,29 @@
     SIZES.forEach((s) => {
       state.sizes[s] = 0;
     });
+    updateAll(true);
+  });
+
+  // --- Step 3: Collar & Add-On controls ---
+  collarGrid.addEventListener('click', (e) => {
+    const btn = e.target.closest('[data-collar]');
+    if (!btn) return;
+    const collarId = btn.dataset.collar;
+    if (state.collar !== collarId) {
+      state.collar = collarId;
+      updateAll(true);
+    }
+  });
+
+  addonGrid.addEventListener('click', (e) => {
+    const btn = e.target.closest('[data-addon]');
+    if (!btn) return;
+    const addonId = btn.dataset.addon;
+    if (state.addons.has(addonId)) {
+      state.addons.delete(addonId);
+    } else {
+      state.addons.add(addonId);
+    }
     updateAll(true);
   });
 

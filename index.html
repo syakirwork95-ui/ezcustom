@@ -232,6 +232,25 @@
         <span class="qty-badge" id="totalQtyPill">0 helai dipilih</span>
       </div>
 
+      <!-- Pilihan Kolar & Add-On Terus Dalam Kalkulator -->
+      <div class="addon-section" id="addonSection">
+        <div class="addon-group">
+          <div class="addon-group-head">
+            <h3 class="addon-group-title" data-i18n="collarGroupTitle">Jenis Kolar</h3>
+            <span class="addon-group-sub" data-i18n="collarGroupSub">Pilih 1 jenis kolar (harga sehelai)</span>
+          </div>
+          <div class="addon-pills" id="collarGrid" role="radiogroup" aria-label="Jenis Kolar"></div>
+        </div>
+
+        <div class="addon-group">
+          <div class="addon-group-head">
+            <h3 class="addon-group-title" data-i18n="addonGroupTitle">Add-On Tambahan (Pilihan)</h3>
+            <span class="addon-group-sub" data-i18n="addonGroupSub">Tekan untuk tambah atau buang (harga sehelai)</span>
+          </div>
+          <div class="addon-pills" id="addonGrid"></div>
+        </div>
+      </div>
+
       <!-- Galakan Jimat / Amaran Minimum -->
       <div class="nudge-banner hidden" id="nudgeBox" aria-live="polite"></div>
 
@@ -246,7 +265,15 @@
           <strong id="sumQty">0 helai</strong>
         </div>
         <div class="receipt-row">
-          <span data-i18n="sumUnitLabel">Harga Sehelai</span>
+          <span data-i18n="sumBaseUnitLabel">Harga Asas Sehelai</span>
+          <strong id="sumBaseUnitPrice">RM33</strong>
+        </div>
+        <div class="receipt-row">
+          <span data-i18n="sumAddonsLabel">Kolar &amp; Add-On</span>
+          <strong id="sumAddons">Round Neck (FREE)</strong>
+        </div>
+        <div class="receipt-row">
+          <span data-i18n="sumUnitLabel">Jumlah Sehelai</span>
           <strong id="sumUnitPrice">RM33</strong>
         </div>
         <div class="receipt-row">
